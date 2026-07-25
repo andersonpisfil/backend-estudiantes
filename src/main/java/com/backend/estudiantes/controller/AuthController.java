@@ -43,6 +43,7 @@ public class AuthController {
             Usuario usuario = authService.authenticate(request.getEmail(), request.getPassword());
             refreshTokenService.deleteByusuario(usuario);
 
+
             Map<String,Object> extraClaims = new HashMap<>();
             extraClaims.put("rol", usuario.getRol());
             extraClaims.put("nombre", usuario.getNombre());
